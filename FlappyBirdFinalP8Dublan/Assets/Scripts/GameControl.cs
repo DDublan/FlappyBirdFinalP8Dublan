@@ -1,18 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class GameControl : MonoBehaviour
 {
     public static GameControl instance;
     public GameObject gameOverText;
-    public Text scoreText;
+    public TextMeshProUGUI scoreText;
     public bool gameOver = false;
     public float scrollSpeed = -1.5f;
 
-    private int score = 0;
+    private int score = 1;
 
     // Start is called before the first frame update
     void Awake()
@@ -35,8 +35,7 @@ public class GameControl : MonoBehaviour
             return;
         }
         score++;
-        scoreText.text = "0" +
-            "0" + score.ToString ();
+        scoreText.text = "Score: " + score.ToString ();
     }
     public void BirdDied()
     {
